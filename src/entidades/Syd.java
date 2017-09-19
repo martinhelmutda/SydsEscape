@@ -3,8 +3,8 @@ package entidades;
 import java.awt.Image;
 
 public class Syd {
-	private int vida;
-	private int sol;
+	private int vida; //estoy agregando comentarios como modo de prueba
+	private int sol; //solo son comentarios, don't worry
 	private int posX;
 	private int posY;
 	private int puntos;
