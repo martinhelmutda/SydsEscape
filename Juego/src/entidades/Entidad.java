@@ -1,11 +1,11 @@
 package entidades;
 
-import java.awt.Image;
+import java.awt.*;
 
 public class Entidad {
 	private int vida; 
-	private int posX; 
-	private int posY;
+	private int posX=50; 
+	private int posY=50;
 	private Image imagen;
 	
 	public int getVida() {
@@ -31,5 +31,8 @@ public class Entidad {
 	}
 	public void setPosX(int posX) {
 		this.posX = posX;
+	}
+	public void draw(Graphics g) {
+	    g.fillOval(posX, posY, 15, 15);                         
 	}
 }
