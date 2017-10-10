@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.1" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="interfaz.Main" project="SydsScape" file="/SydsScape/src/interfaz/Main.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="113" x="213" y="-59"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="entidades.Syd" project="SydsScape" file="/SydsScape/src/entidades/Syd.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="387" width="155" x="1007" y="669"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="entidades.Enemigo" project="SydsScape" 
+    file="/SydsScape/src/entidades/Enemigo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="87" x="366" y="422"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="interfaz.GamePanel" project="SydsScape" 
+    file="/SydsScape/src/interfaz/GamePanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="441" width="182" x="822" y="-59"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="entidades.Entidad" project="SydsScape" 
+    file="/SydsScape/src/entidades/Entidad.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="315" width="134" x="366" y="-59"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="6" language="java" name="entidades" project="SydsScape" file="/SydsScape/src/entidades" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="50" width="101" x="540" y="-59"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="7" language="java" name="interfaz.Director" project="SydsScape" 
+    file="/SydsScape/src/interfaz/Director.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="145" x="822" y="422"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="interfaz.Ordenes" project="SydsScape" file="/SydsScape/src/interfaz/Ordenes.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="149" x="1044" y="-59"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="9" language="java" name="interfaz" project="SydsScape" file="/SydsScape/src/interfaz" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="50" width="101" x="681" y="-59"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="10" language="java" name="interfaz.Menu" project="SydsScape" file="/SydsScape/src/interfaz/Menu.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="145" x="1192" y="422"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="interfaz.Nivel" project="SydsScape" file="/SydsScape/src/interfaz/Nivel.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="145" x="1007" y="422"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="12">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <association id="13">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="14" name="director"/>      
+      <multiplicity id="15" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="16">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="17" name="syd"/>      
+      <multiplicity id="18" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="19">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="8"/>  
+  </generalization>  
+  <generalization id="20">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <association id="21">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="22" name="director"/>      
+      <multiplicity id="23" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="24">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="25" name="instruccion"/>      
+      <multiplicity id="26" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
