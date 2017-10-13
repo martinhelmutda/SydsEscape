@@ -46,7 +46,7 @@ public class Syd extends Entidad{
 			//Agregamos la gravedad
 			//Recordemos que el extremo superior izquierdo es 0,0 entonces si queremos subir, debemos restar
 				y -= currentJumpSpeed; //El salto será de los pixeles que currentJumpSpeed indique
-				currentJumpSpeed -= 0.5;//currentJumpSpeed estara disminuyendo su valor cada que el render pase por aqui hasta que finalmente llegue a 0, el maximo de altura
+				currentJumpSpeed -= 0.9;//currentJumpSpeed estara disminuyendo su valor cada que el render pase por aqui hasta que finalmente llegue a 0, el maximo de altura
 				
 				if (currentJumpSpeed <=0) { //Si ya llego a la maxima altura
 					currentJumpSpeed=jumpSpeed; //La caida comienza desde el valor inicial de caida

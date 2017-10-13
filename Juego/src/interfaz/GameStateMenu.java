@@ -30,7 +30,7 @@ public class GameStateMenu implements GameState{
 	public void pinturitas(Graphics dgb) {
 		dgb.setColor(Color.black);
 		dgb.fillRect(0,0,GamePanel.PWIDTH, GamePanel.PHEIGHT);
-		//Aquí mostraremos el efecto de selección entre las opciones
+		//Aquï¿½ mostraremos el efecto de selecciï¿½n entre las opciones
 		for(int i=0;i<opcion.length;i++) { 	//Recorre e imprime todas las opciones
 			if(i==seleccion) {
 				dgb.setColor(Color.blue);
@@ -39,15 +39,15 @@ public class GameStateMenu implements GameState{
 			}
 			
 			dgb.setFont(new Font("Serif", Font.PLAIN, 40));
-			dgb.drawString(opcion[i], GamePanel.PWIDTH/2 -50, 350 + i*100); //Esto dibuja una palabra en la coordenada deseada
+			dgb.drawString(opcion[i], GamePanel.PWIDTH/2 -50, 200 + i*100); //Esto dibuja una palabra en la coordenada deseada
 			//Tomamos la anchura de la clase GAME PANEL y la dividimos entre 2 para centrar el texto
-		}//Tomamos el número de opciones
+		}//Tomamos el nï¿½mero de opciones
 	}
 
 
 	public void keyPressed(int key) {//PODEMOS CAMBIAR A UN SWITCH
 		if(key == KeyEvent.VK_DOWN) {
-			seleccion++; //Si se presiona alguna de las teclas, la selección cambia
+			seleccion++; //Si se presiona alguna de las teclas, la selecciï¿½n cambia
 			if(seleccion >= opcion.length) {	//Si la seleccion se pasa del numero de opciones, regresa al inicio
 				seleccion=0;
 			}
