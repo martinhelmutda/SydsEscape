@@ -57,7 +57,7 @@ public class Syd extends Entidad{
 			
 			if(fall) { //Si ya está en estado de caída. 
 				if((int)y<GamePanel.PHEIGHT-165) {//EL suelo del juego es de 160 pixeles, por lo tanto es la altura del panel menos los 160
-					
+					//Dejamos 5 pixeles de colchon
 					y += currentFallSpeed; //el valor de y se estará incrementando (recordemos que incrementar es bajar) 
 					if(currentFallSpeed<maxFallSpeed) {//Si el valor de caida es menor al maximo 
 						currentFallSpeed+=0.5;//Se puede ir acelerando
@@ -70,7 +70,7 @@ public class Syd extends Entidad{
 		}
 		
 		
-		if(!fall) { //Si ya no esta en estado de caida, el valor inicial regresa a .1
+		if(!fall) { //Si ya no esta en estado de caida, el valor inicial regresa a .5
 			currentFallSpeed=0.5;
 		}
 		if(!jump&&!fall) { //Si no esta saltando ni cayendo la velocidad debe ser alta
