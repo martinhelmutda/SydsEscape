@@ -7,26 +7,26 @@ import java.awt.event.KeyEvent;
 
 import interfaz.GamePanel;
 
-public class Syd extends Rectangle{
-	//Extender el Rectangle te permite hacer límites para colisiones,  etc.
-	
-	private static final long serialVersionUID = 1L;
+public class Syd extends Entidad{
+	private int x,y;
+	private int width, height;
 	
 	private boolean right=false, left=false;
 	private boolean jump=false, fall=false; 
-	private double x,y;
-	private int width, height;
+
 	private double jumpSpeed = 5;
 	private double currentJumpSpeed=jumpSpeed;
 	
 	private double maxFallSpeed = 5;
 	private double currentFallSpeed = 0.1;
 	
-	public  Syd(int width, int height) {
+	public Syd(int width, int height) {
 		x=GamePanel.PWIDTH-160;
 		y=GamePanel.PHEIGHT-160;
-		this.width=width;
-		this.height=height;
+		this.width = width;
+		this.height = height;
+		
+		this.hitbox = new Rectangle(x,y,width,height);
 	};
 	
 	public void tick() {
@@ -47,7 +47,7 @@ public class Syd extends Rectangle{
 			}
 		}
 		if(jump) {
-			//Agregamos la gravedas
+			//Agregamos la gravedad
 			y -= currentJumpSpeed;
 			currentJumpSpeed -= .1;
 			
@@ -70,20 +70,21 @@ public class Syd extends Rectangle{
 		if(!fall) {
 			currentFallSpeed=.1;
 		}
+		hitbox.setLocation(x,y);
 	}
 	
 	public void pinturita(Graphics dbg) {
 		dbg.setColor(Color.DARK_GRAY);
 		dbg.fillRect((int)x,(int)y,width,height);
 	}
-	public void keyPressed(int oo) {
-		if((oo == KeyEvent.VK_D)||(oo==KeyEvent.VK_RIGHT))right=true;
-		if((oo == KeyEvent.VK_A)||(oo==KeyEvent.VK_LEFT))left=true;
-		if((oo == KeyEvent.VK_SPACE)&&(jump==false)) jump=true;
+	public void keyPressed(int key) {
+		if((key == KeyEvent.VK_D)||(key == KeyEvent.VK_RIGHT))right=true;
+		if((key == KeyEvent.VK_A)||(key == KeyEvent.VK_LEFT))left=true;
+		if((key == KeyEvent.VK_SPACE)&&(jump==false)) jump=true;
 	}
-	public void keyReleased(int oo) {
-		if((oo == KeyEvent.VK_D)||(oo==KeyEvent.VK_RIGHT))right=false;
-		if((oo == KeyEvent.VK_A)||(oo==KeyEvent.VK_LEFT))left=false;
+	public void keyReleased(int key) {
+		if((key == KeyEvent.VK_D)||(key == KeyEvent.VK_RIGHT))right=false;
+		if((key == KeyEvent.VK_A)||(key == KeyEvent.VK_LEFT))left=false;
 	}	
 
 }
