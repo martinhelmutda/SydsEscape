@@ -2,11 +2,13 @@ package entidades;
 
 import java.awt.*;
 
-public class Entidad {
+public abstract class Entidad{
+	
 	private int vida; 
 	private int posX=50; 
 	private int posY=50;
 	private Image imagen;
+	protected Rectangle hitbox;	//Colisiones
 	
 	public int getVida() {
 		return vida;
@@ -34,5 +36,16 @@ public class Entidad {
 	}
 	public void draw(Graphics g) {
 	    g.fillOval(posX, posY, 15, 15);                         
+	}
+	
+	public boolean collision(Rectangle r){
+		
+		Rectangle rec = this.getHitbox();
+		
+		return rec.contains(r.getX(),r.getY());
+	}
+	
+	public Rectangle getHitbox(){
+		return hitbox;
 	}
 }
