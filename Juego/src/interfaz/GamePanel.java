@@ -3,6 +3,8 @@ package interfaz;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 import javax.swing.*;
 
@@ -10,7 +12,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 	
 	private static final long serialVersionUID = 1L;
 	public static final int PWIDTH = 800;
-	public static final int PHEIGHT = 800;
+	public static final int PHEIGHT = 600;
+	
 	
 	private boolean corredor=false;
 	private Thread animator; // Controla animación
@@ -18,6 +21,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 	private int FPS=60;
 	private long tiempoObj= 1000/FPS;
 	private GameStateContext director;
+	private BufferedImage spriteSheet = null; 
+	private SpriteSheet ss;
 	
 	public GamePanel() {
 		setPreferredSize(new Dimension (PWIDTH,PHEIGHT));
@@ -25,9 +30,21 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 		addKeyListener(this);
 		requestFocus();
 		
-		director = new GameStateContext();
-		
+		director = new GameStateContext();	
 	}
+	
+	public void init(){ //inicializa el ImageLoager
+		BufferedImageLoader loader = new BufferedImageLoader();
+		try{
+			spriteSheet = loader.loadImage("/images/mapa.png"); //carga el mapa de Sprites
+			
+		}catch(IOException e){
+			e.printStackTrace();
+		}	
+		
+	ss = new SpriteSheet(spriteSheet);
+	}
+	
 
 	public void addNotify(){
 		super.addNotify();
@@ -42,8 +59,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 	
 	
 	 public void run() {
+		 init();
 		 long inicio, transcurso, espera;
-		 
 		 while(corredor) {
 			 inicio=System.nanoTime();	//Le pedimos al sistema la hora			 
 			 transcurso=System.nanoTime()-inicio;
@@ -63,20 +80,17 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 			 }
 		 }
 	 }
-	 
+	  
 
-	
-	 
-	 public void tick(){
+	public void tick(){
 		 director.tick(); 
 	 }
 	 
 	 public void paintComponent(Graphics dbg) {
 		 super.paintComponent(dbg);
 		 dbg.clearRect(0, 0, PWIDTH, PHEIGHT-120);	//Limpia todo, menos la base
-		 director.pinturitas(dbg); 	//Pintamos las imágenes que el director administra
+		 director.pinturitas(dbg, ss); 	//Pintamos las imágenes que el director administra
 	 }
-	 
 
 	public void keyTyped(KeyEvent e) {
 		

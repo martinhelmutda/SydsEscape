@@ -27,7 +27,7 @@ public class GameStateOver implements GameState{
 
 	}
 
-	public void pinturitas(Graphics dgb) {
+	public void pinturitas(Graphics dgb, SpriteSheet ss) {
 		dgb.setColor(Color.white);
 		dgb.fillRect(0,0,GamePanel.PWIDTH, GamePanel.PHEIGHT);
 		dgb.drawString("Game Over",200, 200);
@@ -39,8 +39,8 @@ public class GameStateOver implements GameState{
 				dgb.setColor(Color.black);
 			}
 			
-			dgb.setFont(new Font("Serif", Font.PLAIN, 40));
-			dgb.drawString(opcion[i], GamePanel.PWIDTH/2 -50, 350 + i*100); 
+			dgb.setFont(new Font("Arial", Font.PLAIN, 40));
+			dgb.drawString(opcion[i], GamePanel.PWIDTH/2 -60, 250 + i*100); 
 			
 		}
 	}
