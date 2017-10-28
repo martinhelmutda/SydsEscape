@@ -10,7 +10,8 @@ public class Obstaculo extends Entidad{
 	private int x,y;
 	private BufferedImage image;
 	
-	public Obstaculo() {
+	public Obstaculo(SpriteSheet ss) {
+		image = ss.grabImage(5, 1, 100, 100);
 		x=GamePanel.PWIDTH-300;
 		y=GamePanel.PHEIGHT-220;
 		
@@ -20,8 +21,7 @@ public class Obstaculo extends Entidad{
 	public void tick() {
 	}
 	
-	public void pinturita(Graphics dbg, SpriteSheet ss) {
-		image = ss.grabImage(5, 1, 100, 100);	
+	public void pinturita(Graphics dbg) {	
 		dbg.drawImage(image, x-30, y-40, null);
 	}
 	

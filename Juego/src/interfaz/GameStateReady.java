@@ -27,7 +27,7 @@ public class GameStateReady implements GameState{
 		
 	}
 
-	public void pinturitas(Graphics dgb, SpriteSheet ss) {
+	public void pinturitas(Graphics dgb) {
 		dgb.setColor(Color.black);
 		dgb.fillRect(0,0,GamePanel.PWIDTH, GamePanel.PHEIGHT);
 		//Aquí mostraremos el efecto de selección entre las opciones

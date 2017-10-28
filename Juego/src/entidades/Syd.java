@@ -20,15 +20,19 @@ public class Syd extends Entidad{
 	
 	private double maxFallSpeed = 15;//esta es la velocidad maxima de caída que puede tener
 	private double currentFallSpeed = 2;//al llegar al punto mas alto regresara con una aceleracion que comienxa con currentFallSpeed y termina con maxFallSpeed
+	private SpriteSheet ss;
+	private static int contador = 1;
 	
-	public Syd() {
+	public Syd(SpriteSheet ss) {
+		this.ss = ss;
+		image = ss.grabImage(1, 1, 100, 100);
 		x=GamePanel.PWIDTH-400;
 		y=GamePanel.PHEIGHT-250;
-		
 		this.hitbox = new Rectangle(x,y,40,80);//declaramos el área de golpe
 	};
 	
 	public void tick() { //constantemente se estara leyendo la tecla que se presiona. Este metodo es responsable de cambiar el objeto de lugar
+		
 		
 		if(fall||jump) { //Si está saltando o cayendo no podemos darle mucha velocidad en x porque hara un gran parabola
 			if(right) {
@@ -79,15 +83,24 @@ public class Syd extends Entidad{
 				
 			}
 			else if(left) {
+				image = ss.grabImage(4, 1, 100, 100);
 				x-=7; //la figura se desplaza 5 pixeles a la izquierda cada que se detecta la presión de la tecla
 				if(x<=5) x=GamePanel.PWIDTH-5;//Si la figura se aproxima al límite por el extremo izquierdo, continua su recorrido por el extremo derecho de la pantalla
 			}
 		}
 		hitbox.setLocation(x,y);//el área de golpe no cambia, por lo tanto solo debemos ir ajustando las coordenadas en donde se encuentra nuestro objeto
+		if((right || left)&&!jump&&!fall){
+			if(contador <4){
+				contador ++;
+			}
+			else{
+				contador=1;
+			}
+		}
 	}
 	
-	public void pinturita(Graphics dbg, SpriteSheet ss) {
-		image = ss.grabImage(1, 1, 100, 100); //selecciona la imagen de la col 1, row 1, ancho 100 y alto 100 pixeles
+	public void pinturita(Graphics dbg) {
+		image= ss.grabImage(contador, 1, 100, 100);
 		//dbg.setColor(Color.DARK_GRAY);
 		//dbg.fillRect((int)x,(int)y,width,height);
 		dbg.drawImage(image, x-30, y-40, null);

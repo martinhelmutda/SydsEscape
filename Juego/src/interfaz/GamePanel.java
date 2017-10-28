@@ -3,8 +3,6 @@ package interfaz;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 import javax.swing.*;
 
@@ -21,8 +19,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 	private int FPS=60;
 	private long tiempoObj= 1000/FPS;
 	private GameStateContext director;
-	private BufferedImage spriteSheet = null; 
-	private SpriteSheet ss;
+
 	
 	public GamePanel() {
 		setPreferredSize(new Dimension (PWIDTH,PHEIGHT));
@@ -34,15 +31,6 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 	}
 	
 	public void init(){ //inicializa el ImageLoager
-		BufferedImageLoader loader = new BufferedImageLoader();
-		try{
-			spriteSheet = loader.loadImage("/images/mapa.png"); //carga el mapa de Sprites
-			
-		}catch(IOException e){
-			e.printStackTrace();
-		}	
-		
-	ss = new SpriteSheet(spriteSheet);
 	}
 	
 
@@ -70,7 +58,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 			 repaint();
 			 
 			 if (espera <= 0) {
-				 espera=5;
+				 espera=10;
 			 }	//No permitimos que la computadora procese tan rápido
 			 
 			 try {
@@ -89,7 +77,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 	 public void paintComponent(Graphics dbg) {
 		 super.paintComponent(dbg);
 		 dbg.clearRect(0, 0, PWIDTH, PHEIGHT-120);	//Limpia todo, menos la base
-		 director.pinturitas(dbg, ss); 	//Pintamos las imágenes que el director administra
+		 director.pinturitas(dbg); 	//Pintamos las imágenes que el director administra
 	 }
 
 	public void keyTyped(KeyEvent e) {

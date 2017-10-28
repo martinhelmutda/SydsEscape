@@ -27,7 +27,7 @@ public class GameStateOver implements GameState{
 
 	}
 
-	public void pinturitas(Graphics dgb, SpriteSheet ss) {
+	public void pinturitas(Graphics dgb) {
 		dgb.setColor(Color.white);
 		dgb.fillRect(0,0,GamePanel.PWIDTH, GamePanel.PHEIGHT);
 		dgb.drawString("Game Over",200, 200);

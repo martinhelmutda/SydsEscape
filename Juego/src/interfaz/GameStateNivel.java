@@ -14,18 +14,22 @@ public class GameStateNivel implements GameState{
 	private Syd syd;
 	private Obstaculo obstaculo;
 	private BufferedImage fondo;
+	private BufferedImage spriteSheet;
+	private SpriteSheet ss;
 
 	public GameStateNivel(GameStateContext dir) {
-		this.director = dir;
-		syd = new Syd();
-		obstaculo = new Obstaculo();
-		
-		BufferedImageLoader loader = new BufferedImageLoader(); //para cargar el fondo
+		this.director = dir;		
+		BufferedImageLoader loader = new BufferedImageLoader(); //para cargar el fondo y los sprites
 		try{
+			spriteSheet = loader.loadImage("/images/mapa.png");
 			fondo = loader.loadImage("/images/fondo.png"); 
 		}catch(IOException e){
 			e.printStackTrace();
-		}	
+		}
+		ss = new SpriteSheet(spriteSheet);
+		
+		syd = new Syd(ss);
+		obstaculo = new Obstaculo(ss);
 	}
 
 	public void menu(){
@@ -48,12 +52,13 @@ public class GameStateNivel implements GameState{
 		{
 			over();
 		}
+		
 	}
 
-	public void pinturitas(Graphics dgb, SpriteSheet ss) {
+	public void pinturitas(Graphics dgb) {
 		dgb.drawImage(fondo, 0, 0, null);
-		syd.pinturita(dgb, ss);
-		obstaculo.pinturita(dgb, ss);
+		syd.pinturita(dgb);
+		obstaculo.pinturita(dgb);
 	}
 	
 	public void keyPressed(int key) {
