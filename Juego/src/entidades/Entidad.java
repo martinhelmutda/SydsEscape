@@ -1,6 +1,9 @@
 package entidades;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
+
+import interfaz.ImageLoader;
 
 public abstract class Entidad{
 	
@@ -9,6 +12,10 @@ public abstract class Entidad{
 	private int posY=50;
 	private Image imagen;
 	protected Rectangle hitbox;	//Colisiones
+	
+	  private String imageName;
+	  private BufferedImage image;
+	  private ImageLoader imsLoader;
 	
 	public int getVida() {
 		return vida;
@@ -48,4 +55,14 @@ public abstract class Entidad{
 	public Rectangle getHitbox(){
 		return hitbox;
 	}
+	
+	public void setImage(String name)
+	  // assign the name image to the sprite
+	  {
+	    imageName = name;
+	    image = imsLoader.getImage(imageName);
+	    if (image == null)     // no image of that name was found
+	      System.out.println("No sprite image for " + imageName);
+	    
+	   }
 }
