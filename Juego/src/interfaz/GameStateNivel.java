@@ -28,6 +28,10 @@ public class GameStateNivel implements GameState{
 
 	}
 	
+	public void over() {
+		director.setState(StateFactory.getState(4, director));
+	}
+	
 	public void tick() {
 		syd.tick();
 		obstaculo.tick();
@@ -35,7 +39,7 @@ public class GameStateNivel implements GameState{
 		
 		if(syd.collision(obstaculo.getHitbox()) || obstaculo.collision(syd.getHitbox()))
 		{
-			director.setState(director.getOver());
+			over();
 		}
 	}
 
@@ -47,7 +51,7 @@ public class GameStateNivel implements GameState{
 	
 	public void keyPressed(int key) {
 		if(key == KeyEvent.VK_ESCAPE ) {
-			director.setState(director.getPaused());
+			director.setState(StateFactory.getState(3, director));
 		}
 		syd.keyPressed(key);
 	}

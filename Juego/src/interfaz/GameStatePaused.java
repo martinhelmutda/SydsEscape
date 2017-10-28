@@ -57,7 +57,7 @@ public class GameStatePaused implements GameState{
 			}
 		}else if(key == KeyEvent.VK_ENTER || key == KeyEvent.VK_SPACE) {
 			if(seleccion==0) {
-				director.setState(director.getNivel());
+				director.setState(StateFactory.getState(2, director));
 			}
 			else if(seleccion==1) {
 				System.exit(0);
