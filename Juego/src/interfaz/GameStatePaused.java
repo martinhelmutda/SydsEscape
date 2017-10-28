@@ -39,7 +39,7 @@ public class GameStatePaused implements GameState{
 			}
 			
 			dgb.setFont(new Font("Serif", Font.PLAIN, 40));
-			dgb.drawString(opcion[i], GamePanel.PWIDTH/2 -50, 350 + i*100); 
+			dgb.drawString(opcion[i], GamePanel.PWIDTH/2 -50, 200 + i*100); 
 			
 		}
 	}
