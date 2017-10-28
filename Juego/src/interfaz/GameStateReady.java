@@ -27,7 +27,7 @@ public class GameStateReady implements GameState{
 		
 	}
 
-	public void pinturitas(Graphics dgb) {
+	public void pinturitas(Graphics dgb, SpriteSheet ss) {
 		dgb.setColor(Color.black);
 		dgb.fillRect(0,0,GamePanel.PWIDTH, GamePanel.PHEIGHT);
 		//Aquí mostraremos el efecto de selección entre las opciones
@@ -38,8 +38,8 @@ public class GameStateReady implements GameState{
 				dgb.setColor(Color.white);
 			}
 			
-			dgb.setFont(new Font("Serif", Font.PLAIN, 40));
-			dgb.drawString(opcion[i], GamePanel.PWIDTH/2 -50, 350 + i*100); //Esto dibuja una palabra en la coordenada deseada
+			dgb.setFont(new Font("Arial", Font.PLAIN, 40));
+			dgb.drawString(opcion[i], GamePanel.PWIDTH/2 -50, 250 + i*100); //Esto dibuja una palabra en la coordenada deseada
 			//Tomamos la anchura de la clase GAME PANEL y la dividimos entre 2 para centrar el texto
 		}//Tomamos el número de opciones
 	}

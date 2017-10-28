@@ -17,8 +17,8 @@ public class GameStateContext {
 		currentState.tick();
 	}
 	
-	public void pinturitas(Graphics dgb) {
-		currentState.pinturitas(dgb);
+	public void pinturitas(Graphics dgb, SpriteSheet ss) { //manda las imagenes
+		currentState.pinturitas(dgb, ss);
 	}
 
 	public void keyPressed(int keyCode) {

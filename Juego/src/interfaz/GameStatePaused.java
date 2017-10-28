@@ -27,7 +27,7 @@ public class GameStatePaused implements GameState{
 
 	}
 
-	public void pinturitas(Graphics dgb) {
+	public void pinturitas(Graphics dgb, SpriteSheet ss) {
 		dgb.setColor(Color.white);
 		dgb.fillRect(0,0,GamePanel.PWIDTH, GamePanel.PHEIGHT);
 		
