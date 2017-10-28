@@ -1,35 +1,38 @@
 package entidades;
 
-import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
 
 import interfaz.GamePanel;
+import interfaz.SpriteSheet;
 
 public class Syd extends Entidad{
 	private int x,y;
-	private int width, height;
 	
 	private boolean right=false, left=false;
 	private boolean jump=false, fall=false; 
+	private BufferedImage image;
 
 	private double jumpSpeed = 17;
 	private double currentJumpSpeed=jumpSpeed;
 	
 	private double maxFallSpeed = 15;//esta es la velocidad maxima de caída que puede tener
 	private double currentFallSpeed = 2;//al llegar al punto mas alto regresara con una aceleracion que comienxa con currentFallSpeed y termina con maxFallSpeed
+	private SpriteSheet ss;
+	private static int contador = 1;
 	
-	public Syd(int width, int height) {
-		x=GamePanel.PWIDTH-160;
-		y=GamePanel.PHEIGHT-160;
-		this.width = width;
-		this.height = height;
-		
-		this.hitbox = new Rectangle(x,y,width,height);//declaramos el área de golpe
+	public Syd(SpriteSheet ss) {
+		this.ss = ss;
+		image = ss.grabImage(1, 1, 100, 100);
+		x=GamePanel.PWIDTH-400;
+		y=GamePanel.PHEIGHT-250;
+		this.hitbox = new Rectangle(x,y,40,80);//declaramos el área de golpe
 	};
 	
 	public void tick() { //constantemente se estara leyendo la tecla que se presiona. Este metodo es responsable de cambiar el objeto de lugar
+		
 		
 		if(fall||jump) { //Si está saltando o cayendo no podemos darle mucha velocidad en x porque hara un gran parabola
 			if(right) {
@@ -56,7 +59,7 @@ public class Syd extends Entidad{
 			}
 			
 			if(fall) { //Si ya está en estado de caída. 
-				if((int)y<GamePanel.PHEIGHT-165) {//EL suelo del juego es de 160 pixeles, por lo tanto es la altura del panel menos los 160
+				if((int)y<GamePanel.PHEIGHT-250) {//EL suelo del juego es de 160 pixeles, por lo tanto es la altura del panel menos los 160
 					//Dejamos 5 pixeles de colchon
 					y += currentFallSpeed; //el valor de y se estará incrementando (recordemos que incrementar es bajar) 
 					if(currentFallSpeed<maxFallSpeed) {//Si el valor de caida es menor al maximo 
@@ -80,16 +83,27 @@ public class Syd extends Entidad{
 				
 			}
 			else if(left) {
+				image = ss.grabImage(4, 1, 100, 100);
 				x-=7; //la figura se desplaza 5 pixeles a la izquierda cada que se detecta la presión de la tecla
 				if(x<=5) x=GamePanel.PWIDTH-5;//Si la figura se aproxima al límite por el extremo izquierdo, continua su recorrido por el extremo derecho de la pantalla
 			}
 		}
 		hitbox.setLocation(x,y);//el área de golpe no cambia, por lo tanto solo debemos ir ajustando las coordenadas en donde se encuentra nuestro objeto
+		if((right || left)&&!jump&&!fall){
+			if(contador <4){
+				contador ++;
+			}
+			else{
+				contador=1;
+			}
+		}
 	}
 	
 	public void pinturita(Graphics dbg) {
-		dbg.setColor(Color.DARK_GRAY);
-		dbg.fillRect((int)x,(int)y,width,height);
+		image= ss.grabImage(contador, 1, 100, 100);
+		//dbg.setColor(Color.DARK_GRAY);
+		//dbg.fillRect((int)x,(int)y,width,height);
+		dbg.drawImage(image, x-30, y-40, null);
 	}
 	public void keyPressed(int key) {
 		if((key == KeyEvent.VK_D)||(key == KeyEvent.VK_RIGHT))right=true;

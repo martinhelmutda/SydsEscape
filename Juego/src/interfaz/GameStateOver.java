@@ -39,8 +39,8 @@ public class GameStateOver implements GameState{
 				dgb.setColor(Color.black);
 			}
 			
-			dgb.setFont(new Font("Serif", Font.PLAIN, 40));
-			dgb.drawString(opcion[i], GamePanel.PWIDTH/2 -50, 350 + i*100); 
+			dgb.setFont(new Font("Arial", Font.PLAIN, 40));
+			dgb.drawString(opcion[i], GamePanel.PWIDTH/2 -60, 250 + i*100); 
 			
 		}
 	}

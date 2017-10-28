@@ -2,6 +2,9 @@ package interfaz;
 
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
 
 import entidades.*;
 
@@ -10,14 +13,23 @@ public class GameStateNivel implements GameState{
 	
 	private Syd syd;
 	private Obstaculo obstaculo;
-	private Enemigo enemigo;
+	private BufferedImage fondo;
+	private BufferedImage spriteSheet;
+	private SpriteSheet ss;
 
 	public GameStateNivel(GameStateContext dir) {
-		this.director = dir;
+		this.director = dir;		
+		BufferedImageLoader loader = new BufferedImageLoader(); //para cargar el fondo y los sprites
+		try{
+			spriteSheet = loader.loadImage("/images/mapa.png");
+			fondo = loader.loadImage("/images/fondo.png"); 
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+		ss = new SpriteSheet(spriteSheet);
 		
-		syd = new Syd(40,40);
-		obstaculo = new Obstaculo(40, 40);
-		enemigo = new Enemigo(40, 40);
+		syd = new Syd(ss);
+		obstaculo = new Obstaculo(ss);
 	}
 
 	public void menu(){
@@ -35,18 +47,18 @@ public class GameStateNivel implements GameState{
 	public void tick() {
 		syd.tick();
 		obstaculo.tick();
-		enemigo.tick();
 		
 		if(syd.collision(obstaculo.getHitbox()) || obstaculo.collision(syd.getHitbox()))
 		{
 			over();
 		}
+		
 	}
 
 	public void pinturitas(Graphics dgb) {
+		dgb.drawImage(fondo, 0, 0, null);
 		syd.pinturita(dgb);
 		obstaculo.pinturita(dgb);
-		enemigo.pinturita(dgb);
 	}
 	
 	public void keyPressed(int key) {
