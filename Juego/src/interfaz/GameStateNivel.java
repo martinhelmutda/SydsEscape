@@ -13,16 +13,18 @@ public class GameStateNivel implements GameState{
 	
 	private Syd syd;
 	private Obstaculo obstaculo;
-	private BufferedImage fondo;
+	private BufferedImage fondo, color, fondoLargo, arboles;
+	private BufferedImageLoader loader;
 	private BufferedImage spriteSheet;
 	private SpriteSheet ss;
 
 	public GameStateNivel(GameStateContext dir) {
 		this.director = dir;		
-		BufferedImageLoader loader = new BufferedImageLoader(); //para cargar el fondo y los sprites
+		loader = new BufferedImageLoader(); //para cargar el fondo y los sprites
 		try{
 			spriteSheet = loader.loadImage("/images/mapa.png");
-			fondo = loader.loadImage("/images/fondo.png"); 
+			fondo = loader.loadImage("/images/fondo-c.png");
+			fondoLargo = loader.loadImage("/images/fondo-largo.png");
 		}catch(IOException e){
 			e.printStackTrace();
 		}
@@ -30,6 +32,8 @@ public class GameStateNivel implements GameState{
 		
 		syd = new Syd(ss);
 		obstaculo = new Obstaculo(ss);
+		arboles = loader.grabBackground(fondoLargo);
+		
 	}
 
 	public void menu(){
@@ -45,6 +49,7 @@ public class GameStateNivel implements GameState{
 	}
 	
 	public void tick() {
+		arboles = loader.grabBackground(fondoLargo);
 		syd.tick();
 		obstaculo.tick();
 		
@@ -57,6 +62,7 @@ public class GameStateNivel implements GameState{
 
 	public void pinturitas(Graphics dgb) {
 		dgb.drawImage(fondo, 0, 0, null);
+		dgb.drawImage(arboles, 0, 0, null);
 		syd.pinturita(dgb);
 		obstaculo.pinturita(dgb);
 	}
