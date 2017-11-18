@@ -1,6 +1,5 @@
 package interfaz;
 
-
 import java.awt.image.*;
 import java.io.IOException;
 
@@ -16,11 +15,12 @@ public class BufferedImageLoader {
 	}
 	
 	public BufferedImage grabBackground(BufferedImage imagen){
-		if(contador == 4000){
+		if(contador == 4800){
 			contador = 0;
 		}
+		
 		BufferedImage img = imagen.getSubimage(contador, 0, 800, 600);
-		contador ++;
+		contador += 5;
 		return img;
 	}
 }

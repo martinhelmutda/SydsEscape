@@ -15,12 +15,20 @@ public class GameStateOver implements GameState{
 		this.director = dir;
 	}
 
-	public void menu(){
+	public void ready(){
 		
 	}
 	
 	public void nivel(){
-
+		director.setState(StateFactory.getState(2, director));
+	}
+	
+	public void pause(){
+		
+	}
+	
+	public void over() {
+		
 	}
 	
 	public void tick() {
@@ -30,7 +38,11 @@ public class GameStateOver implements GameState{
 	public void pinturitas(Graphics dgb) {
 		dgb.setColor(Color.white);
 		dgb.fillRect(0,0,GamePanel.PWIDTH, GamePanel.PHEIGHT);
-		dgb.drawString("Game Over",200, 200);
+		
+		dgb.setFont(new Font("Arial", Font.PLAIN, 60));
+		dgb.setColor(Color.black);
+		dgb.drawString(String.valueOf(GameStateNivel.score), 550, 180);
+		dgb.drawString("Game Over", 200, 180);
 		
 		for(int i=0;i<opcion.length;i++) {
 			if(i==seleccion) {
@@ -58,7 +70,7 @@ public class GameStateOver implements GameState{
 			}
 		}else if(key == KeyEvent.VK_ENTER || key == KeyEvent.VK_SPACE) {
 			if(seleccion==0) {
-				director.setState(StateFactory.getState(2, director));
+				nivel();
 			}
 			else if(seleccion==1) {
 				System.exit(0);

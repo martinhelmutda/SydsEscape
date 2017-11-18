@@ -15,12 +15,20 @@ public class GameStatePaused implements GameState{
 		this.director = dir;
 	}
 
-	public void menu(){
+	public void ready(){
 		
 	}
 	
 	public void nivel(){
-
+		director.setState(StateFactory.getState(2, director));
+	}
+	
+	public void pause(){
+		
+	}
+	
+	public void over(){
+		director.setState(StateFactory.getState(4, director));
 	}
 	
 	public void tick() {
@@ -57,10 +65,10 @@ public class GameStatePaused implements GameState{
 			}
 		}else if(key == KeyEvent.VK_ENTER || key == KeyEvent.VK_SPACE) {
 			if(seleccion==0) {
-				director.setState(StateFactory.getState(2, director));
+				nivel();
 			}
 			else if(seleccion==1) {
-				System.exit(0);
+				over();
 			}
 		}
 	}

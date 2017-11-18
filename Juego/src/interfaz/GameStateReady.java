@@ -15,11 +15,19 @@ public class GameStateReady implements GameState{
 		this.director = dir;	
 	}
 	
-	public void menu(){
+	public void ready(){
 		
 	}
 	
 	public void nivel(){
+		director.setState(StateFactory.getState(2, director));
+	}
+	
+	public void pause(){
+		
+	}
+	
+	public void over(){
 		
 	}
 
@@ -58,7 +66,7 @@ public class GameStateReady implements GameState{
 			}
 		}else if(key == KeyEvent.VK_ENTER || key == KeyEvent.VK_SPACE) {
 			if(seleccion==0) {	//Inicio
-				director.setState(StateFactory.getState(2, director));
+				nivel();
 			}
 			else if(seleccion==1) {	//Salir
 				System.exit(0);
