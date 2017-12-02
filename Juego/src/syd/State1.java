@@ -20,6 +20,7 @@ public class State1 implements SydState{
 	}
 	
 	public void tick(){
+<<<<<<< HEAD
 		if(Syd.score>=(1*1500)){ //si el puntaje aumenta en 150 puntos, Syd evoluciona a su siguiente estado
 			state2();
 		}
@@ -35,6 +36,15 @@ public class State1 implements SydState{
 			}else{
 				image= ss.grabImage(Syd.contador, 1, 100, 100);
 			}
+=======
+		
+	}
+	
+	public void pinturitas(Graphics dbg) {
+		context.cont++;
+		if(context.cont%10 == 0){
+			image= ss.grabImage(Syd.contador, 1, 100, 100);
+>>>>>>> master
 		}
 		
 		if(context.invulnerableTick%2 == 0){
@@ -53,6 +63,7 @@ public class State1 implements SydState{
 	public void state1() {
 		
 	}
+<<<<<<< HEAD
 
 	@Override
 	public void state2() {
@@ -107,4 +118,6 @@ public class State1 implements SydState{
 		// TODO Auto-generated method stub
 		
 	}
+=======
+>>>>>>> master
 }

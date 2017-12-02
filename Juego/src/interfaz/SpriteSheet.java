@@ -13,4 +13,5 @@ public class SpriteSheet {
 		BufferedImage img = image.getSubimage((col*100)-100, (row*100)-100, width, height);
 		return img;
 	}
+	
 }

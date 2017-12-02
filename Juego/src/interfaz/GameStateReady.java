@@ -41,7 +41,11 @@ public class GameStateReady implements GameState{
 	}
 	
 	public void nivel(){
+<<<<<<< HEAD
 		director.setState(StateFactory.getState(2, director, loader));
+=======
+		director.setState(StateFactory.getState(2, director));
+>>>>>>> master
 	}
 	
 	public void pause(){

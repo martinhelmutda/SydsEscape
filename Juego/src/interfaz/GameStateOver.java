@@ -22,7 +22,11 @@ public class GameStateOver implements GameState{
 	}
 	
 	public void nivel(){
+<<<<<<< HEAD
 		director.setState(StateFactory.getState(2, director, loader));
+=======
+		director.setState(StateFactory.getState(2, director));
+>>>>>>> master
 	}
 	
 	public void pause(){
@@ -38,12 +42,22 @@ public class GameStateOver implements GameState{
 	}
 
 	public void pinturitas(Graphics dgb) {
+<<<<<<< HEAD
 		dgb.drawImage(loader.getImage(4), 0, 0, null);
 		
 		dgb.setFont(new Font("Arial", Font.PLAIN, 60));
 		dgb.setColor(Color.black);
 		dgb.drawString(String.valueOf(GameStateNivel.score), 550, 450);
 		dgb.drawString("Game Over", 200, 450);
+=======
+		dgb.setColor(Color.white);
+		dgb.fillRect(0,0,GamePanel.PWIDTH, GamePanel.PHEIGHT);
+		
+		dgb.setFont(new Font("Arial", Font.PLAIN, 60));
+		dgb.setColor(Color.black);
+		dgb.drawString(String.valueOf(GameStateNivel.score), 550, 180);
+		dgb.drawString("Game Over", 200, 180);
+>>>>>>> master
 		
 		for(int i=0;i<opcion.length;i++) {
 			if(i==seleccion) {

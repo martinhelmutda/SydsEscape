@@ -22,7 +22,11 @@ public class GameStatePaused implements GameState{
 	}
 	
 	public void nivel(){
+<<<<<<< HEAD
 		director.setState(StateFactory.getState(2, director, loader));
+=======
+		director.setState(StateFactory.getState(2, director));
+>>>>>>> master
 	}
 	
 	public void pause(){
@@ -30,7 +34,11 @@ public class GameStatePaused implements GameState{
 	}
 	
 	public void over(){
+<<<<<<< HEAD
 		director.setState(StateFactory.getState(4, director, loader));
+=======
+		director.setState(StateFactory.getState(4, director));
+>>>>>>> master
 	}
 	
 	public void tick() {

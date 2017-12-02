@@ -12,6 +12,7 @@ import interfaz.SpriteSheet;
 
 public class Syd extends Entidad{	
 	private SydState state1;
+<<<<<<< HEAD
 	private SydState state2;
 	private SydState state3;
 	private SydState state4;
@@ -25,6 +26,12 @@ public class Syd extends Entidad{
 	
 	public int x, y, cont;
 	public static int contador = 1, score;
+=======
+	private SydState currentState;
+	
+	public int x, y, cont;
+	public static int contador = 1;
+>>>>>>> master
 	
 	private boolean right=false, left=false;
 	private boolean jump=false, fall=false, hit = false; 
@@ -53,6 +60,7 @@ public class Syd extends Entidad{
 	
 	public Syd(SpriteSheet ss) {
 		state1 = new State1(ss, this); 
+<<<<<<< HEAD
 		state2 = new State2(ss, this); 
 		state3 = new State3(ss, this); 
 		state4 = new State4(ss, this); 
@@ -62,6 +70,8 @@ public class Syd extends Entidad{
 		state8 = new State8(ss, this); 
 		state9 = new State9(ss, this); 
 		state10 = new State10(ss, this); 
+=======
+>>>>>>> master
 		
 		currentState = state1;
 		
@@ -82,11 +92,15 @@ public class Syd extends Entidad{
 		sunGrab = true;
 	}
 	
+<<<<<<< HEAD
 	/*Metodos del StateSyd*/
+=======
+>>>>>>> master
 	public void setState(SydState s) {
 		currentState = s;
 	}
 	
+<<<<<<< HEAD
 	public SydState getState1(){
 		System.out.println("state1");
 		return state1;
@@ -138,6 +152,8 @@ public class Syd extends Entidad{
 	}
 	/**/
 	
+=======
+>>>>>>> master
 	public void hit(){
 		if(invulnerable == false){
 			life -= 10;
@@ -181,11 +197,16 @@ public class Syd extends Entidad{
 		}
 	}
 	
+<<<<<<< HEAD
 	int conta;
 	public void tick() { //constantemente se estara leyendo la tecla que se presiona. Este metodo es responsable de cambiar el objeto de lugar
 		currentState.tick();
 		score++;
 	
+=======
+	public void tick() { //constantemente se estara leyendo la tecla que se presiona. Este metodo es responsable de cambiar el objeto de lugar
+		currentState.tick();
+>>>>>>> master
 		
 		if(x >= 400){
 			stop = true;
@@ -312,6 +333,12 @@ public class Syd extends Entidad{
 		lifebar(dbg);
 		sunbar(dbg);
 		
+<<<<<<< HEAD
+=======
+		if(superSyd == true){ 
+			dbg.drawString("Supersyd", 100, 100);
+		}
+>>>>>>> master
 	}
 	
 	public void lifebar(Graphics dbg){

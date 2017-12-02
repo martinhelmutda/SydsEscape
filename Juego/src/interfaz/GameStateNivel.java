@@ -5,6 +5,10 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
+<<<<<<< HEAD
+=======
+import java.io.IOException;
+>>>>>>> master
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -18,12 +22,21 @@ public class GameStateNivel implements GameState{
 	
 	private ArrayList<Entidad> obstacle = new ArrayList<Entidad>();
 	
+<<<<<<< HEAD
 	private BufferedImage fondodia, fondonoche, arboles;
 	private ImageLoader loader;
 	private SpriteSheet ss; //contiene un objeto encargado de hacer las operaciones para las animaciones de sprites
 	private BackgroundOp bk; //contiene un objeto encargado de hacer las operaciones para la animacion del fondo
 	
 	private EntityGenerator entities; //objeto encargado de generar entidades al azar
+=======
+	private BufferedImage fondodia, fondonoche, fondoLargo, arboles;
+	private BufferedImageLoader loader;
+	private BufferedImage spriteSheet;
+	private SpriteSheet ss;
+	
+	private EntityGenerator entities;
+>>>>>>> master
 	
 	private int generateTime;
 	
@@ -40,7 +53,21 @@ public class GameStateNivel implements GameState{
 
 	public GameStateNivel(GameStateContext dir, ImageLoader loader) {
 		this.director = dir;		
+<<<<<<< HEAD
 		this.loader = loader;
+=======
+		loader = new BufferedImageLoader(); //para cargar el fondo y los sprites
+		try{
+			spriteSheet = loader.loadImage("/images/mapa.png");
+			fondodia = loader.loadImage("/images/fondo-c.png");
+			fondonoche = loader.loadImage("/images/fondo-d.png");
+			fondoLargo = loader.loadImage("/images/fondo-largo.png");
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+		
+		ss = new SpriteSheet(spriteSheet);
+>>>>>>> master
 		
 		ss = new SpriteSheet(loader.getImage(0));
 		bk = new BackgroundOp(loader.getImage(3));
@@ -50,7 +77,11 @@ public class GameStateNivel implements GameState{
 		
 		entities = new EntityGenerator(ss);
 		
+<<<<<<< HEAD
 		arboles = bk.grabBackground(); //asigna un fondo inicial
+=======
+		arboles = loader.grabBackground(fondoLargo);
+>>>>>>> master
 		
 		generateTime = 0;
 		
@@ -73,7 +104,11 @@ public class GameStateNivel implements GameState{
 	}
 	
 	public void pause(){
+<<<<<<< HEAD
 		director.setState(StateFactory.getState(3, director, loader)); //crea los estados a partir de un Factory
+=======
+		director.setState(StateFactory.getState(3, director));
+>>>>>>> master
 	}
 	
 	public void over() {
@@ -105,6 +140,34 @@ public class GameStateNivel implements GameState{
 		}
 	}
 	
+<<<<<<< HEAD
+=======
+	public void  detectCollision(){		
+		Iterator<Entidad> obstacleIt = obstacle.iterator();
+		
+		if(obstacle.isEmpty() != true){
+			while(obstacleIt.hasNext()){
+				Entidad obstaculo = obstacleIt.next();
+				
+				if(syd.collision(obstaculo.getHitbox()) || obstaculo.collision(syd.getHitbox()))
+				{
+					if(obstaculo.getType() == "agua"){
+						syd.regenLife();
+						obstacleIt.remove();
+					}else{
+						if(syd.getSuperSyd()){
+							obstacleIt.remove();
+							score += 10;
+						}else{
+							syd.hit();
+						}
+					}
+				}
+			}
+		}
+	}
+	
+>>>>>>> master
 	public void  clearUnused(){
 		Iterator<Entidad> obstacleIt = obstacle.iterator();
 		
@@ -136,7 +199,11 @@ public class GameStateNivel implements GameState{
 		isMoving = syd.getRight();
 		if(isMoving){
 			addScore();
+<<<<<<< HEAD
 	 		arboles = bk.grabBackground();
+=======
+	 		arboles = loader.grabBackground(fondoLargo);
+>>>>>>> master
 			
 			Iterator<Entidad> obstacleIt = obstacle.iterator();
 			if(obstacle.isEmpty() != true){
@@ -183,7 +250,10 @@ public class GameStateNivel implements GameState{
 				syd.sunGrab = true;
 			}else{
 				isNight = true;
+<<<<<<< HEAD
 				entities.setNight(isNight);
+=======
+>>>>>>> master
 				syd.sunGrab = false;
 			}
 			nightTime = 0;

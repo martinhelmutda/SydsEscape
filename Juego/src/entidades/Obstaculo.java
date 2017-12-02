@@ -14,6 +14,7 @@ public class Obstaculo extends Entidad{
 	private boolean outOfBounds;
 	
 	public Obstaculo(SpriteSheet ss) {
+<<<<<<< HEAD
 		randomObs = (int)Math.round(Math.random()*4+1);;
 		
 		switch(randomObs){
@@ -35,6 +36,9 @@ public class Obstaculo extends Entidad{
 				
 		}
 
+=======
+		image = ss.grabImage(5, 1, 100, 100);
+>>>>>>> master
 		x = GamePanel.PWIDTH;
 		y = GamePanel.PHEIGHT-220;
 		
@@ -42,8 +46,11 @@ public class Obstaculo extends Entidad{
 		
 		outOfBounds = false;
 	}
+<<<<<<< HEAD
 	
 	
+=======
+>>>>>>> master
 	
 	public void tick() {
 		outOfBounds = checkBounds();

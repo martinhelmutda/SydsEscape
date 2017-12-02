@@ -10,6 +10,7 @@ interface SydState {
 	public void keyReleased(int key);
 
 	public void state1();
+<<<<<<< HEAD
 	public void state2();
 	public void state3();
 	public void state4();
@@ -19,4 +20,6 @@ interface SydState {
 	public void state8();
 	public void state9();
 	public void state10();
+=======
+>>>>>>> master
 }
