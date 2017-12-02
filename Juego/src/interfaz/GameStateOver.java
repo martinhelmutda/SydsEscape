@@ -7,20 +7,30 @@ import java.awt.event.KeyEvent;
 
 public class GameStateOver implements GameState{
 	GameStateContext director;
+	private ImageLoader loader;
 	
 	private String[] opcion = {"Reintentar","Salir"};
 	private int seleccion=0;
 
-	public GameStateOver(GameStateContext dir) {
+	public GameStateOver(GameStateContext dir, ImageLoader loader) {
+		this.loader = loader;
 		this.director = dir;
 	}
 
-	public void menu(){
+	public void ready(){
 		
 	}
 	
 	public void nivel(){
-
+		director.setState(StateFactory.getState(2, director, loader));
+	}
+	
+	public void pause(){
+		
+	}
+	
+	public void over() {
+		
 	}
 	
 	public void tick() {
@@ -28,9 +38,12 @@ public class GameStateOver implements GameState{
 	}
 
 	public void pinturitas(Graphics dgb) {
-		dgb.setColor(Color.white);
-		dgb.fillRect(0,0,GamePanel.PWIDTH, GamePanel.PHEIGHT);
-		dgb.drawString("Game Over",200, 200);
+		dgb.drawImage(loader.getImage(4), 0, 0, null);
+		
+		dgb.setFont(new Font("Arial", Font.PLAIN, 60));
+		dgb.setColor(Color.black);
+		dgb.drawString(String.valueOf(GameStateNivel.score), 550, 450);
+		dgb.drawString("Game Over", 200, 450);
 		
 		for(int i=0;i<opcion.length;i++) {
 			if(i==seleccion) {
@@ -39,13 +52,8 @@ public class GameStateOver implements GameState{
 				dgb.setColor(Color.black);
 			}
 			
-<<<<<<< HEAD
-			dgb.setFont(new Font("Serif", Font.PLAIN, 40));
-			dgb.drawString(opcion[i], GamePanel.PWIDTH/2 -50, 200 + i*100); 
-=======
 			dgb.setFont(new Font("Arial", Font.PLAIN, 40));
 			dgb.drawString(opcion[i], GamePanel.PWIDTH/2 -60, 250 + i*100); 
->>>>>>> master
 			
 		}
 	}
@@ -63,7 +71,7 @@ public class GameStateOver implements GameState{
 			}
 		}else if(key == KeyEvent.VK_ENTER || key == KeyEvent.VK_SPACE) {
 			if(seleccion==0) {
-				director.setState(StateFactory.getState(2, director));
+				nivel();
 			}
 			else if(seleccion==1) {
 				System.exit(0);

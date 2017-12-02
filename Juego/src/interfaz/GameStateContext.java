@@ -4,9 +4,11 @@ import java.awt.Graphics;
 
 public class GameStateContext {	
 	private GameState currentState;
+	private ImageLoader loader;
 	
 	public GameStateContext() {
-		currentState = StateFactory.getState(1, this);
+		loader = new ImageLoader();
+		currentState = StateFactory.getState(1, this, loader);
 	}
 	
 	public void setState(GameState s) {

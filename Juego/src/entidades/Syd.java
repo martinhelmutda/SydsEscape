@@ -1,5 +1,6 @@
 package entidades;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
@@ -88,7 +89,7 @@ public class Syd extends Entidad{
 				if(x<=5) x=GamePanel.PWIDTH-5;//Si la figura se aproxima al límite por el extremo izquierdo, continua su recorrido por el extremo derecho de la pantalla
 			}
 		}
-		hitbox.setLocation(x,y);//el área de golpe no cambia, por lo tanto solo debemos ir ajustando las coordenadas en donde se encuentra nuestro objeto
+		hitbox.setLocation(x+10,y);//el área de golpe no cambia, por lo tanto solo debemos ir ajustando las coordenadas en donde se encuentra nuestro objeto
 		if((right || left)&&!jump&&!fall){
 			if(contador <4){
 				contador ++;
@@ -100,9 +101,9 @@ public class Syd extends Entidad{
 	}
 	
 	public void pinturita(Graphics dbg) {
-		image= ss.grabImage(contador, 1, 100, 100);
-		//dbg.setColor(Color.DARK_GRAY);
-		//dbg.fillRect((int)x,(int)y,width,height);
+		image= ss.grabImage(contador, 1, 100, 100); //columna = contador
+		dbg.setColor(Color.DARK_GRAY);
+		dbg.fillRect((int)x,(int)y-20,40,80);
 		dbg.drawImage(image, x-30, y-40, null);
 	}
 	public void keyPressed(int key) {

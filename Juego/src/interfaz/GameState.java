@@ -9,6 +9,8 @@ interface GameState {
 	public void keyPressed(int oo);
 	public void keyReleased(int oo);
 
-	public void menu();
+	public void ready();
 	public void nivel();
+	public void pause();
+	public void over();
 }

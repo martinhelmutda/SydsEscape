@@ -9,17 +9,12 @@ import javax.swing.*;
 public class GamePanel extends JPanel implements Runnable, KeyListener{
 	
 	private static final long serialVersionUID = 1L;
-<<<<<<< HEAD
-	public static final int PWIDTH = 720;
-	public static final int PHEIGHT = 480;
-=======
 	public static final int PWIDTH = 800;
 	public static final int PHEIGHT = 600;
 	
->>>>>>> master
 	
 	private boolean corredor=false;
-	private Thread animator; // Controla animaciï¿½n
+	private Thread animator; // Controla animación
 	
 	private int FPS=60;
 	private long tiempoObj= 1000/FPS;
@@ -63,13 +58,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 			 repaint();
 			 
 			 if (espera <= 0) {
-<<<<<<< HEAD
-				 espera=5;
-			 }	//No permitimos que la computadora procese tan rï¿½pido
-=======
 				 espera=10;
 			 }	//No permitimos que la computadora procese tan rápido
->>>>>>> master
 			 
 			 try {
 				 Thread.sleep(espera);
@@ -87,7 +77,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener{
 	 public void paintComponent(Graphics dbg) {
 		 super.paintComponent(dbg);
 		 dbg.clearRect(0, 0, PWIDTH, PHEIGHT-120);	//Limpia todo, menos la base
-		 director.pinturitas(dbg); 	//Pintamos las imï¿½genes que el director administra
+		 director.pinturitas(dbg); 	//Pintamos las imágenes que el director administra
 	 }
 
 	public void keyTyped(KeyEvent e) {
